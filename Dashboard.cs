@@ -42,7 +42,7 @@ namespace Dashboard_Monitor
 
         private void DownloadData(object sender, EventArgs e)
         {
-            //this.bcInt.getContractData();
+            this.bcInt.getContractData();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace Dashboard_Monitor
 
                     
 
-                    if (dateTimeOffset.Day == 7 & dateTimeOffset.Hour != current_hour)
+                    if (dateTimeOffset.Day == 8 & dateTimeOffset.Hour != current_hour)
                     {
                         current_hour = dateTimeOffset.Hour;
                         //chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
