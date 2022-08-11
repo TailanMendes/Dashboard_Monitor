@@ -48,10 +48,10 @@ namespace Dashboard_Monitor
         private void timer1_Tick(object sender, EventArgs e)
         {
             updateTempChart();
-            updateTempLabel();
+            updateCurrentMeasure();
         }
 
-        private void updateTempLabel()
+        private void updateCurrentMeasure()
         {
             string data_path = @"c:\\iaq_data.ms";
 
@@ -59,6 +59,8 @@ namespace Dashboard_Monitor
             var last_line = File.ReadLines(data_path).Last();
 
             this.lbTempValue.Text = getTempFromString(last_line) + " °C";
+
+            this.lbHumidityValue.Text = getUmidityFromString(last_line) + "%";
 
             sr.Close();
         }
@@ -124,6 +126,13 @@ namespace Dashboard_Monitor
             string[] subs = s.Split('|');
             var sTemp = subs[0];
             return sTemp;
+        }
+
+        private string getUmidityFromString(String s)
+        {
+            string[] subs = s.Split('|');
+            var sHum = subs[1];
+            return sHum;
         }
 
         private void chartTemperature_Click(object sender, EventArgs e)
