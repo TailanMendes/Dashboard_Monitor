@@ -33,8 +33,8 @@ namespace Dashboard_Monitor
         private void InitializeTimer()
         {
             // Call this procedure when the application starts.  
-            // Set to 10 second.  
-            timer1.Interval = 10000;
+            // Set to 5 second.  
+            timer1.Interval = 5000;
             timer1.Tick += new EventHandler(DownloadData);
 
 
@@ -62,6 +62,9 @@ namespace Dashboard_Monitor
 
             this.lbHumidityValue.Text = getUmidityFromString(last_line) + "%";
 
+            // Convert Epoch to date time and update label
+            this.lbTimeLastMeasure.Text = (DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(last_line))).ToLocalTime()).ToString();
+
             sr.Close();
         }
 
@@ -85,11 +88,11 @@ namespace Dashboard_Monitor
                 {
                     double temperature = Convert.ToDouble(getTempFromString(line));
 
-                    DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(line)));
+                    DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(line))).ToLocalTime();
 
                     
 
-                    if (dateTimeOffset.Day == 8 & dateTimeOffset.Hour != current_hour)
+                    if (dateTimeOffset.Day == 10 & dateTimeOffset.Hour != current_hour)
                     {
                         current_hour = dateTimeOffset.Hour;
                         //chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);

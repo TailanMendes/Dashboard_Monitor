@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chartTemperature = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnTemp = new System.Windows.Forms.Panel();
@@ -43,6 +43,8 @@
             this.lbHumidity = new System.Windows.Forms.Label();
             this.picBoxHumidity = new System.Windows.Forms.PictureBox();
             this.picBoxTemp = new System.Windows.Forms.PictureBox();
+            this.lbTimeLastMeasure = new System.Windows.Forms.Label();
+            this.lbLastUpdate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemperature)).BeginInit();
             this.pnTemp.SuspendLayout();
             this.pnHumidity.SuspendLayout();
@@ -59,58 +61,58 @@
             // 
             this.chartTemperature.BackColor = System.Drawing.Color.Gray;
             this.chartTemperature.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            chartArea1.AxisX.Interval = 1D;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.IsMarginVisible = false;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.LineWidth = 0;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.Interval = 0D;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
-            chartArea1.AxisX.MajorTickMark.Size = 5F;
-            chartArea1.AxisX.Maximum = 23D;
-            chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisX.Title = "Horas";
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            chartArea1.AxisY.Interval = 1D;
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            chartArea1.AxisY.LabelStyle.Format = "0*C";
-            chartArea1.AxisY.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisY.Maximum = 35D;
-            chartArea1.AxisY.Minimum = 28D;
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
-            chartArea1.BorderWidth = 5;
-            chartArea1.Name = "ChartArea1";
-            this.chartTemperature.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chartTemperature.Legends.Add(legend1);
+            chartArea3.AxisX.Interval = 1D;
+            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.AxisX.IsLabelAutoFit = false;
+            chartArea3.AxisX.IsMarginVisible = false;
+            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            chartArea3.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX.LineWidth = 0;
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisX.MajorGrid.Interval = 0D;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea3.AxisX.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
+            chartArea3.AxisX.MajorTickMark.Size = 5F;
+            chartArea3.AxisX.Maximum = 23D;
+            chartArea3.AxisX.Minimum = 0D;
+            chartArea3.AxisX.Title = "Horas";
+            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            chartArea3.AxisY.Interval = 1D;
+            chartArea3.AxisY.IsLabelAutoFit = false;
+            chartArea3.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            chartArea3.AxisY.LabelStyle.Format = "0*C";
+            chartArea3.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea3.AxisY.Maximum = 35D;
+            chartArea3.AxisY.Minimum = 28D;
+            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
+            chartArea3.BorderWidth = 5;
+            chartArea3.Name = "ChartArea1";
+            this.chartTemperature.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chartTemperature.Legends.Add(legend3);
             this.chartTemperature.Location = new System.Drawing.Point(12, 191);
             this.chartTemperature.Name = "chartTemperature";
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.BorderWidth = 5;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series1.Color = System.Drawing.Color.Firebrick;
-            series1.Legend = "Legend1";
-            series1.LegendText = "Temperatura em °C";
-            series1.Name = "Temp";
-            series1.ShadowColor = System.Drawing.Color.Transparent;
-            this.chartTemperature.Series.Add(series1);
+            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series3.BorderWidth = 5;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series3.Color = System.Drawing.Color.Firebrick;
+            series3.Legend = "Legend1";
+            series3.LegendText = "Temperatura em °C";
+            series3.Name = "Temp";
+            series3.ShadowColor = System.Drawing.Color.Transparent;
+            this.chartTemperature.Series.Add(series3);
             this.chartTemperature.Size = new System.Drawing.Size(710, 373);
             this.chartTemperature.TabIndex = 0;
             this.chartTemperature.Text = "Temperature";
-            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title1.Name = "Title1";
-            title1.Text = "Temperatura";
-            this.chartTemperature.Titles.Add(title1);
+            title3.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title3.Name = "Title1";
+            title3.Text = "Temperatura";
+            this.chartTemperature.Titles.Add(title3);
             this.chartTemperature.Click += new System.EventHandler(this.chartTemperature_Click);
             // 
             // pnTemp
@@ -197,12 +199,34 @@
             this.picBoxTemp.TabIndex = 1;
             this.picBoxTemp.TabStop = false;
             // 
+            // lbTimeLastMeasure
+            // 
+            this.lbTimeLastMeasure.AutoSize = true;
+            this.lbTimeLastMeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimeLastMeasure.Location = new System.Drawing.Point(593, 9);
+            this.lbTimeLastMeasure.Name = "lbTimeLastMeasure";
+            this.lbTimeLastMeasure.Size = new System.Drawing.Size(168, 17);
+            this.lbTimeLastMeasure.TabIndex = 4;
+            this.lbTimeLastMeasure.Text = "8/10/2022 9:03:26 PM";
+            // 
+            // lbLastUpdate
+            // 
+            this.lbLastUpdate.AutoSize = true;
+            this.lbLastUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLastUpdate.Location = new System.Drawing.Point(401, 9);
+            this.lbLastUpdate.Name = "lbLastUpdate";
+            this.lbLastUpdate.Size = new System.Drawing.Size(186, 17);
+            this.lbLastUpdate.TabIndex = 5;
+            this.lbLastUpdate.Text = "Última leitura do sensor:";
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(812, 576);
+            this.ClientSize = new System.Drawing.Size(817, 576);
+            this.Controls.Add(this.lbLastUpdate);
+            this.Controls.Add(this.lbTimeLastMeasure);
             this.Controls.Add(this.pnHumidity);
             this.Controls.Add(this.pnTemp);
             this.Controls.Add(this.chartTemperature);
@@ -219,6 +243,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHumidity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxTemp)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -234,6 +259,8 @@
         private System.Windows.Forms.Label lbHumidityValue;
         private System.Windows.Forms.PictureBox picBoxHumidity;
         private System.Windows.Forms.Label lbHumidity;
+        private System.Windows.Forms.Label lbTimeLastMeasure;
+        private System.Windows.Forms.Label lbLastUpdate;
     }
 }
 
