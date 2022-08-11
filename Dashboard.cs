@@ -48,6 +48,19 @@ namespace Dashboard_Monitor
         private void timer1_Tick(object sender, EventArgs e)
         {
             updateTempChart();
+            updateTempLabel();
+        }
+
+        private void updateTempLabel()
+        {
+            string data_path = @"c:\\iaq_data.ms";
+
+            StreamReader sr = new StreamReader(data_path);
+            var last_line = File.ReadLines(data_path).Last();
+
+            this.lbTempValue.Text = getTempFromString(last_line) + " °C";
+
+            sr.Close();
         }
 
         private void updateTempChart()

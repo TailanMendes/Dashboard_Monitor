@@ -35,7 +35,19 @@
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chartTemperature = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pnTemp = new System.Windows.Forms.Panel();
+            this.lbTempValue = new System.Windows.Forms.Label();
+            this.lbTemp = new System.Windows.Forms.Label();
+            this.pnHumidity = new System.Windows.Forms.Panel();
+            this.lbHumidityValue = new System.Windows.Forms.Label();
+            this.lbHumidity = new System.Windows.Forms.Label();
+            this.picBoxHumidity = new System.Windows.Forms.PictureBox();
+            this.picBoxTemp = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemperature)).BeginInit();
+            this.pnTemp.SuspendLayout();
+            this.pnHumidity.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxHumidity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTemp)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -79,7 +91,7 @@
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chartTemperature.Legends.Add(legend1);
-            this.chartTemperature.Location = new System.Drawing.Point(37, 30);
+            this.chartTemperature.Location = new System.Drawing.Point(12, 191);
             this.chartTemperature.Name = "chartTemperature";
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
             series1.BorderWidth = 5;
@@ -91,7 +103,7 @@
             series1.Name = "Temp";
             series1.ShadowColor = System.Drawing.Color.Transparent;
             this.chartTemperature.Series.Add(series1);
-            this.chartTemperature.Size = new System.Drawing.Size(1099, 499);
+            this.chartTemperature.Size = new System.Drawing.Size(710, 373);
             this.chartTemperature.TabIndex = 0;
             this.chartTemperature.Text = "Temperature";
             title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -101,17 +113,111 @@
             this.chartTemperature.Titles.Add(title1);
             this.chartTemperature.Click += new System.EventHandler(this.chartTemperature_Click);
             // 
+            // pnTemp
+            // 
+            this.pnTemp.BackColor = System.Drawing.Color.White;
+            this.pnTemp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnTemp.CausesValidation = false;
+            this.pnTemp.Controls.Add(this.lbTempValue);
+            this.pnTemp.Controls.Add(this.picBoxTemp);
+            this.pnTemp.Controls.Add(this.lbTemp);
+            this.pnTemp.Location = new System.Drawing.Point(12, 12);
+            this.pnTemp.Name = "pnTemp";
+            this.pnTemp.Size = new System.Drawing.Size(164, 160);
+            this.pnTemp.TabIndex = 1;
+            // 
+            // lbTempValue
+            // 
+            this.lbTempValue.AutoSize = true;
+            this.lbTempValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTempValue.Location = new System.Drawing.Point(59, 99);
+            this.lbTempValue.Name = "lbTempValue";
+            this.lbTempValue.Size = new System.Drawing.Size(53, 20);
+            this.lbTempValue.TabIndex = 2;
+            this.lbTempValue.Text = "25 ºC";
+            // 
+            // lbTemp
+            // 
+            this.lbTemp.AutoSize = true;
+            this.lbTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTemp.Location = new System.Drawing.Point(28, 119);
+            this.lbTemp.Name = "lbTemp";
+            this.lbTemp.Size = new System.Drawing.Size(111, 20);
+            this.lbTemp.TabIndex = 0;
+            this.lbTemp.Text = "Temperatura";
+            // 
+            // pnHumidity
+            // 
+            this.pnHumidity.BackColor = System.Drawing.Color.White;
+            this.pnHumidity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnHumidity.CausesValidation = false;
+            this.pnHumidity.Controls.Add(this.lbHumidityValue);
+            this.pnHumidity.Controls.Add(this.picBoxHumidity);
+            this.pnHumidity.Controls.Add(this.lbHumidity);
+            this.pnHumidity.Location = new System.Drawing.Point(182, 12);
+            this.pnHumidity.Name = "pnHumidity";
+            this.pnHumidity.Size = new System.Drawing.Size(164, 160);
+            this.pnHumidity.TabIndex = 3;
+            // 
+            // lbHumidityValue
+            // 
+            this.lbHumidityValue.AutoSize = true;
+            this.lbHumidityValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHumidityValue.Location = new System.Drawing.Point(59, 99);
+            this.lbHumidityValue.Name = "lbHumidityValue";
+            this.lbHumidityValue.Size = new System.Drawing.Size(44, 20);
+            this.lbHumidityValue.TabIndex = 2;
+            this.lbHumidityValue.Text = "50%";
+            // 
+            // lbHumidity
+            // 
+            this.lbHumidity.AutoSize = true;
+            this.lbHumidity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHumidity.Location = new System.Drawing.Point(48, 119);
+            this.lbHumidity.Name = "lbHumidity";
+            this.lbHumidity.Size = new System.Drawing.Size(80, 20);
+            this.lbHumidity.TabIndex = 0;
+            this.lbHumidity.Text = "Umidade";
+            // 
+            // picBoxHumidity
+            // 
+            this.picBoxHumidity.Image = global::Dashboard_Monitor.Properties.Resources.humidity_icon;
+            this.picBoxHumidity.Location = new System.Drawing.Point(52, 18);
+            this.picBoxHumidity.Name = "picBoxHumidity";
+            this.picBoxHumidity.Size = new System.Drawing.Size(60, 69);
+            this.picBoxHumidity.TabIndex = 1;
+            this.picBoxHumidity.TabStop = false;
+            // 
+            // picBoxTemp
+            // 
+            this.picBoxTemp.Image = global::Dashboard_Monitor.Properties.Resources.temperature_termometer_icon;
+            this.picBoxTemp.Location = new System.Drawing.Point(52, 18);
+            this.picBoxTemp.Name = "picBoxTemp";
+            this.picBoxTemp.Size = new System.Drawing.Size(60, 69);
+            this.picBoxTemp.TabIndex = 1;
+            this.picBoxTemp.TabStop = false;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1188, 576);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(812, 576);
+            this.Controls.Add(this.pnHumidity);
+            this.Controls.Add(this.pnTemp);
             this.Controls.Add(this.chartTemperature);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmDashboard";
             this.ShowIcon = false;
             this.Text = "Dashboard Monitor";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartTemperature)).EndInit();
+            this.pnTemp.ResumeLayout(false);
+            this.pnTemp.PerformLayout();
+            this.pnHumidity.ResumeLayout(false);
+            this.pnHumidity.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxHumidity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTemp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,6 +226,14 @@
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartTemperature;
+        private System.Windows.Forms.Panel pnTemp;
+        private System.Windows.Forms.Label lbTemp;
+        private System.Windows.Forms.PictureBox picBoxTemp;
+        private System.Windows.Forms.Label lbTempValue;
+        private System.Windows.Forms.Panel pnHumidity;
+        private System.Windows.Forms.Label lbHumidityValue;
+        private System.Windows.Forms.PictureBox picBoxHumidity;
+        private System.Windows.Forms.Label lbHumidity;
     }
 }
 
