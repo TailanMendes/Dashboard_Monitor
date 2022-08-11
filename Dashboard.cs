@@ -71,6 +71,7 @@ namespace Dashboard_Monitor
         private void updateTempChart()
         {
             this.chartTemperature.Series[0].Points.Clear();
+            this.chartUmidade.Series[0].Points.Clear();
             //Series series = this.chartTemperature.Series.Add("Temperature");
             //Series series = this.chartTemperature.Series[0];
             //series.ChartType = SeriesChartType.Area;
@@ -87,16 +88,18 @@ namespace Dashboard_Monitor
                 while ((line = reader.ReadLine()) != null)
                 {
                     double temperature = Convert.ToDouble(getTempFromString(line));
+                    double humidity = Convert.ToDouble(getUmidityFromString(line));
 
                     DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(line))).ToLocalTime();
 
                     
 
-                    if (dateTimeOffset.Day == 10 & dateTimeOffset.Hour != current_hour)
+                    if (dateTimeOffset.Day == 9 & dateTimeOffset.Hour != current_hour)
                     {
                         current_hour = dateTimeOffset.Hour;
                         //chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
                         chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
+                        chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Hour, humidity);
                         count_measures++;
                         
 
