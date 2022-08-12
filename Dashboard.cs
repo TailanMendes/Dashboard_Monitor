@@ -94,7 +94,7 @@ namespace Dashboard_Monitor
 
                     
 
-                    if (dateTimeOffset.Day == 9 & dateTimeOffset.Hour != current_hour)
+                    if (dateTimeOffset.Day == 11 & dateTimeOffset.Hour != current_hour)
                     {
                         current_hour = dateTimeOffset.Hour;
                         //chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
