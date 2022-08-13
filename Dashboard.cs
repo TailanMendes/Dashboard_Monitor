@@ -123,7 +123,18 @@ namespace Dashboard_Monitor
         private string getEpochTime(string s)
         {
             string[] subs = s.Split('|');
-            var epochtime = subs[2];
+            string epochtime;
+
+            if (subs.Length == 5)
+            {
+                epochtime = subs[4];
+            }
+            else
+            {
+                epochtime = subs[2];
+            }
+
+
             return epochtime;
         }
 
