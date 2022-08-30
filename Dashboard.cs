@@ -94,12 +94,12 @@ namespace Dashboard_Monitor
 
                     
 
-                    if (dateTimeOffset.Day == 11 & dateTimeOffset.Hour != current_hour)
+                    if (dateTimeOffset.Day == 29 & dateTimeOffset.Minute != current_hour)
                     {
-                        current_hour = dateTimeOffset.Hour;
+                        current_hour = dateTimeOffset.Minute;
                         //chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
-                        chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
-                        chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Hour, humidity);
+                        chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Minute, temperature);
+                        chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Minute, humidity);
                         count_measures++;
                         
 
@@ -125,9 +125,9 @@ namespace Dashboard_Monitor
             string[] subs = s.Split('|');
             string epochtime;
 
-            if (subs.Length == 5)
+            if (subs.Length == 6)
             {
-                epochtime = subs[4];
+                epochtime = subs[5];
             }
             else
             {

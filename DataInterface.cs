@@ -20,7 +20,7 @@ namespace Dashboard_Monitor
             try
             {
                 var web3 = new Web3("https://rinkeby.infura.io/v3/ea9cd517fe4c4782a5f7ee526a578ec5");
-                var contractAddress = "0x194E4A079f507208B544eB8EAd2821e3Daa6a8C5";
+                var contractAddress = "0x495498a9F628Ce581AedA1B5bb6e598090717Df7";
                 var contractHandler = web3.Eth.GetContractHandler(contractAddress);
 
                 /** Function: getMeasure**/
