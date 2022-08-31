@@ -63,9 +63,39 @@ namespace Dashboard_Monitor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap co2_icon {
+            get {
+                object obj = ResourceManager.GetObject("co2_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap humidity_icon {
             get {
                 object obj = ResourceManager.GetObject("humidity_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pm10_icon {
+            get {
+                object obj = ResourceManager.GetObject("pm10_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pm2_5_icon {
+            get {
+                object obj = ResourceManager.GetObject("pm2.5_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +126,16 @@ namespace Dashboard_Monitor.Properties {
         internal static System.Drawing.Bitmap thermometer_weather_icon {
             get {
                 object obj = ResourceManager.GetObject("thermometer_weather_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tvoc_icon {
+            get {
+                object obj = ResourceManager.GetObject("tvoc_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

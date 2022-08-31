@@ -147,5 +147,17 @@
   <ItemGroup>
     <None Include="Resources\humidity_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\co2_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pm2.5_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvoc_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pm10_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

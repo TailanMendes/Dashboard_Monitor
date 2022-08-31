@@ -42,7 +42,7 @@ namespace Dashboard_Monitor
 
         private void DownloadData(object sender, EventArgs e)
         {
-            this.bcInt.getContractData();
+           // this.bcInt.getContractData();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -62,8 +62,16 @@ namespace Dashboard_Monitor
 
             this.lbHumidityValue.Text = getUmidityFromString(last_line) + "%";
 
+            this.lbCO2Value.Text = getCO2FromString(last_line) + " PPM";
+
+            this.lbTVOCValue.Text = getTVOCFromString(last_line) + " PPM";
+
+            this.lbPM25Value.Text = getPM25FromString(last_line) + " ug/m³";
+
+            this.lbPM10Value.Text = getPM10FromString(last_line) + " ug/m³";
+
             // Convert Epoch to date time and update label
-            this.lbTimeLastMeasure.Text = (DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(last_line))).ToLocalTime()).ToString();
+            this.toolStripSensorReadTime.Text = (DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(last_line))).ToLocalTime()).ToString();
 
             sr.Close();
         }
@@ -72,14 +80,12 @@ namespace Dashboard_Monitor
         {
             this.chartTemperature.Series[0].Points.Clear();
             this.chartUmidade.Series[0].Points.Clear();
-            //Series series = this.chartTemperature.Series.Add("Temperature");
-            //Series series = this.chartTemperature.Series[0];
-            //series.ChartType = SeriesChartType.Area;
+            this.chartCO2.Series[0].Points.Clear();
+            this.chartTVOC.Series[0].Points.Clear();
+            this.chartPM25.Series[0].Points.Clear();
+            this.chartPM25.Series[1].Points.Clear();
 
             string data_path = @"c:\\iaq_data.ms";
-
-            int serie_count = chartTemperature.Series.Count();
-            int count_measures = 0;
 
             using (StreamReader reader = new StreamReader(data_path))
             {
@@ -89,35 +95,27 @@ namespace Dashboard_Monitor
                 {
                     double temperature = Convert.ToDouble(getTempFromString(line));
                     double humidity = Convert.ToDouble(getUmidityFromString(line));
+                    uint co2 = Convert.ToUInt32(getCO2FromString(line));
+                    uint tvoc = Convert.ToUInt32(getTVOCFromString(line));
+                    double pm25 = Convert.ToDouble(getPM25FromString(line));
+                    double pm10 = Convert.ToDouble(getPM10FromString(line));
 
                     DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(line))).ToLocalTime();
 
                     
 
-                    if (dateTimeOffset.Day == 29 & dateTimeOffset.Minute != current_hour)
+                    if (dateTimeOffset.Day == 31 & dateTimeOffset.Hour != current_hour)
                     {
-                        current_hour = dateTimeOffset.Minute;
-                        //chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
-                        chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Minute, temperature);
-                        chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Minute, humidity);
-                        count_measures++;
-                        
-
-                        //series.Points.AddXY(dateTimeOffset.Hour, temperature);
+                        current_hour = dateTimeOffset.Hour;
+                        chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
+                        chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Hour, humidity);
+                        chartCO2.Series[0].Points.AddXY(dateTimeOffset.Hour, co2);
+                        chartTVOC.Series[0].Points.AddXY(dateTimeOffset.Hour, tvoc);
+                        chartPM25.Series[0].Points.AddXY(dateTimeOffset.Hour, pm25);
+                        chartPM25.Series[1].Points.AddXY(dateTimeOffset.Hour, pm10);
                     }
-
-                    //series.Points.AddXY(dateTimeOffset.DateTime, temperature);
                 }
             }
-
-            /*
-            series.Points.AddXY("7", 29);
-            series.Points.AddXY("8", 30);
-            series.Points.AddXY("9", 31);
-            series.Points.AddXY("10", 28);
-            series.Points.AddXY("11", 32);
-            series.Points.AddXY("12", 33);
-            */
         }
 
         private string getEpochTime(string s)
@@ -125,9 +123,9 @@ namespace Dashboard_Monitor
             string[] subs = s.Split('|');
             string epochtime;
 
-            if (subs.Length == 6)
+            if (subs.Length == 7)
             {
-                epochtime = subs[5];
+                epochtime = subs[6];
             }
             else
             {
@@ -150,6 +148,34 @@ namespace Dashboard_Monitor
             string[] subs = s.Split('|');
             var sHum = subs[1];
             return sHum;
+        }
+
+        private string getCO2FromString(String s)
+        {
+            string[] subs = s.Split('|');
+            var sCO2 = subs[2];
+            return sCO2;
+        }
+
+        private string getTVOCFromString(String s)
+        {
+            string[] subs = s.Split('|');
+            var sTVOC = subs[3];
+            return sTVOC;
+        }
+
+        private string getPM25FromString(String s)
+        {
+            string[] subs = s.Split('|');
+            var sPM25 = subs[4];
+            return sPM25;
+        }
+
+        private string getPM10FromString(String s)
+        {
+            string[] subs = s.Split('|');
+            var sPM10 = subs[5];
+            return sPM10;
         }
 
         private void chartTemperature_Click(object sender, EventArgs e)
