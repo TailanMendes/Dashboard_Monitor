@@ -38,49 +38,52 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine1 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 440D);
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chartTemperature = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnTemp = new System.Windows.Forms.Panel();
             this.lbTempValue = new System.Windows.Forms.Label();
+            this.picBoxTemp = new System.Windows.Forms.PictureBox();
             this.lbTemp = new System.Windows.Forms.Label();
             this.pnHumidity = new System.Windows.Forms.Panel();
             this.lbHumidityValue = new System.Windows.Forms.Label();
+            this.picBoxHumidity = new System.Windows.Forms.PictureBox();
             this.lbHumidity = new System.Windows.Forms.Label();
             this.chartUmidade = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnCO2 = new System.Windows.Forms.Panel();
             this.lbCO2Value = new System.Windows.Forms.Label();
+            this.picBoxCO2 = new System.Windows.Forms.PictureBox();
             this.lbCO2 = new System.Windows.Forms.Label();
             this.pnTVOC = new System.Windows.Forms.Panel();
             this.lbTVOCValue = new System.Windows.Forms.Label();
+            this.picBoxTVOC = new System.Windows.Forms.PictureBox();
             this.lbTVOC = new System.Windows.Forms.Label();
             this.pnPM25 = new System.Windows.Forms.Panel();
             this.lbPM25Value = new System.Windows.Forms.Label();
+            this.picBoxPM25 = new System.Windows.Forms.PictureBox();
             this.lbPM25 = new System.Windows.Forms.Label();
             this.pnPM10 = new System.Windows.Forms.Panel();
             this.lbPM10Value = new System.Windows.Forms.Label();
-            this.lbPM10 = new System.Windows.Forms.Label();
             this.picBoxPM10 = new System.Windows.Forms.PictureBox();
-            this.picBoxPM25 = new System.Windows.Forms.PictureBox();
-            this.picBoxTVOC = new System.Windows.Forms.PictureBox();
-            this.picBoxCO2 = new System.Windows.Forms.PictureBox();
-            this.picBoxHumidity = new System.Windows.Forms.PictureBox();
-            this.picBoxTemp = new System.Windows.Forms.PictureBox();
+            this.lbPM10 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSensorReadTime = new System.Windows.Forms.ToolStripStatusLabel();
@@ -88,38 +91,39 @@
             this.tabTEMP = new System.Windows.Forms.TabPage();
             this.tabRH = new System.Windows.Forms.TabPage();
             this.tabCO2 = new System.Windows.Forms.TabPage();
-            this.tabTVOC = new System.Windows.Forms.TabPage();
-            this.tabPM25 = new System.Windows.Forms.TabPage();
-            this.tabPM10 = new System.Windows.Forms.TabPage();
             this.chartCO2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabTVOC = new System.Windows.Forms.TabPage();
             this.chartTVOC = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPM25 = new System.Windows.Forms.TabPage();
             this.chartPM25 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPM10 = new System.Windows.Forms.TabPage();
             this.charPM10 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemperature)).BeginInit();
             this.pnTemp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTemp)).BeginInit();
             this.pnHumidity.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxHumidity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartUmidade)).BeginInit();
             this.pnCO2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCO2)).BeginInit();
             this.pnTVOC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTVOC)).BeginInit();
             this.pnPM25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPM25)).BeginInit();
             this.pnPM10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPM10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPM25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxTVOC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCO2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxHumidity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxTemp)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabTEMP.SuspendLayout();
             this.tabRH.SuspendLayout();
             this.tabCO2.SuspendLayout();
-            this.tabTVOC.SuspendLayout();
-            this.tabPM25.SuspendLayout();
-            this.tabPM10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartCO2)).BeginInit();
+            this.tabTVOC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTVOC)).BeginInit();
+            this.tabPM25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPM25)).BeginInit();
+            this.tabPM10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.charPM10)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,8 +134,8 @@
             // 
             // chartTemperature
             // 
-            this.chartTemperature.BackColor = System.Drawing.Color.Gray;
-            this.chartTemperature.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.chartTemperature.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))));
+            this.chartTemperature.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
             chartArea1.AxisX.Interval = 1D;
             chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea1.AxisX.IsLabelAutoFit = false;
@@ -169,7 +173,7 @@
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chartTemperature.Legends.Add(legend1);
-            this.chartTemperature.Location = new System.Drawing.Point(6, 6);
+            this.chartTemperature.Location = new System.Drawing.Point(3, 3);
             this.chartTemperature.Name = "chartTemperature";
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
             series1.BorderWidth = 5;
@@ -181,7 +185,7 @@
             series1.Name = "Temp";
             series1.ShadowColor = System.Drawing.Color.Transparent;
             this.chartTemperature.Series.Add(series1);
-            this.chartTemperature.Size = new System.Drawing.Size(994, 404);
+            this.chartTemperature.Size = new System.Drawing.Size(1012, 405);
             this.chartTemperature.TabIndex = 0;
             this.chartTemperature.Text = "Temperature";
             title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -193,13 +197,13 @@
             // 
             // pnTemp
             // 
-            this.pnTemp.BackColor = System.Drawing.Color.White;
+            this.pnTemp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(209)))), ((int)(((byte)(227)))));
             this.pnTemp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnTemp.CausesValidation = false;
             this.pnTemp.Controls.Add(this.lbTempValue);
             this.pnTemp.Controls.Add(this.picBoxTemp);
             this.pnTemp.Controls.Add(this.lbTemp);
-            this.pnTemp.Location = new System.Drawing.Point(12, 5);
+            this.pnTemp.Location = new System.Drawing.Point(6, 8);
             this.pnTemp.Name = "pnTemp";
             this.pnTemp.Size = new System.Drawing.Size(164, 160);
             this.pnTemp.TabIndex = 1;
@@ -214,6 +218,15 @@
             this.lbTempValue.TabIndex = 2;
             this.lbTempValue.Text = "25 ºC";
             // 
+            // picBoxTemp
+            // 
+            this.picBoxTemp.Image = global::Dashboard_Monitor.Properties.Resources.temperature_termometer_icon;
+            this.picBoxTemp.Location = new System.Drawing.Point(52, 44);
+            this.picBoxTemp.Name = "picBoxTemp";
+            this.picBoxTemp.Size = new System.Drawing.Size(60, 69);
+            this.picBoxTemp.TabIndex = 1;
+            this.picBoxTemp.TabStop = false;
+            // 
             // lbTemp
             // 
             this.lbTemp.AutoSize = true;
@@ -226,13 +239,13 @@
             // 
             // pnHumidity
             // 
-            this.pnHumidity.BackColor = System.Drawing.Color.White;
+            this.pnHumidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(209)))), ((int)(((byte)(227)))));
             this.pnHumidity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnHumidity.CausesValidation = false;
             this.pnHumidity.Controls.Add(this.lbHumidityValue);
             this.pnHumidity.Controls.Add(this.picBoxHumidity);
             this.pnHumidity.Controls.Add(this.lbHumidity);
-            this.pnHumidity.Location = new System.Drawing.Point(182, 5);
+            this.pnHumidity.Location = new System.Drawing.Point(175, 8);
             this.pnHumidity.Name = "pnHumidity";
             this.pnHumidity.Size = new System.Drawing.Size(164, 160);
             this.pnHumidity.TabIndex = 3;
@@ -247,6 +260,15 @@
             this.lbHumidityValue.TabIndex = 2;
             this.lbHumidityValue.Text = "50%";
             // 
+            // picBoxHumidity
+            // 
+            this.picBoxHumidity.Image = global::Dashboard_Monitor.Properties.Resources.humidity_icon;
+            this.picBoxHumidity.Location = new System.Drawing.Point(52, 42);
+            this.picBoxHumidity.Name = "picBoxHumidity";
+            this.picBoxHumidity.Size = new System.Drawing.Size(60, 69);
+            this.picBoxHumidity.TabIndex = 1;
+            this.picBoxHumidity.TabStop = false;
+            // 
             // lbHumidity
             // 
             this.lbHumidity.AutoSize = true;
@@ -259,8 +281,8 @@
             // 
             // chartUmidade
             // 
-            this.chartUmidade.BackColor = System.Drawing.Color.Gray;
-            this.chartUmidade.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.chartUmidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))));
+            this.chartUmidade.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
             chartArea2.AxisX.Interval = 1D;
             chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea2.AxisX.IsLabelAutoFit = false;
@@ -295,7 +317,7 @@
             legend2.IsTextAutoFit = false;
             legend2.Name = "Legend1";
             this.chartUmidade.Legends.Add(legend2);
-            this.chartUmidade.Location = new System.Drawing.Point(6, 6);
+            this.chartUmidade.Location = new System.Drawing.Point(3, 3);
             this.chartUmidade.Name = "chartUmidade";
             series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
             series2.BorderWidth = 5;
@@ -307,7 +329,7 @@
             series2.Name = "Temp";
             series2.ShadowColor = System.Drawing.Color.Transparent;
             this.chartUmidade.Series.Add(series2);
-            this.chartUmidade.Size = new System.Drawing.Size(994, 401);
+            this.chartUmidade.Size = new System.Drawing.Size(1012, 405);
             this.chartUmidade.TabIndex = 6;
             this.chartUmidade.Text = "Temperature";
             title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -318,13 +340,13 @@
             // 
             // pnCO2
             // 
-            this.pnCO2.BackColor = System.Drawing.Color.White;
+            this.pnCO2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(209)))), ((int)(((byte)(227)))));
             this.pnCO2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnCO2.CausesValidation = false;
             this.pnCO2.Controls.Add(this.lbCO2Value);
             this.pnCO2.Controls.Add(this.picBoxCO2);
             this.pnCO2.Controls.Add(this.lbCO2);
-            this.pnCO2.Location = new System.Drawing.Point(352, 5);
+            this.pnCO2.Location = new System.Drawing.Point(344, 8);
             this.pnCO2.Name = "pnCO2";
             this.pnCO2.Size = new System.Drawing.Size(164, 160);
             this.pnCO2.TabIndex = 4;
@@ -339,6 +361,15 @@
             this.lbCO2Value.TabIndex = 2;
             this.lbCO2Value.Text = "400 PPM";
             // 
+            // picBoxCO2
+            // 
+            this.picBoxCO2.Image = global::Dashboard_Monitor.Properties.Resources.co2_icon;
+            this.picBoxCO2.Location = new System.Drawing.Point(52, 40);
+            this.picBoxCO2.Name = "picBoxCO2";
+            this.picBoxCO2.Size = new System.Drawing.Size(60, 69);
+            this.picBoxCO2.TabIndex = 1;
+            this.picBoxCO2.TabStop = false;
+            // 
             // lbCO2
             // 
             this.lbCO2.AutoSize = true;
@@ -351,13 +382,13 @@
             // 
             // pnTVOC
             // 
-            this.pnTVOC.BackColor = System.Drawing.Color.White;
+            this.pnTVOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(209)))), ((int)(((byte)(227)))));
             this.pnTVOC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnTVOC.CausesValidation = false;
             this.pnTVOC.Controls.Add(this.lbTVOCValue);
             this.pnTVOC.Controls.Add(this.picBoxTVOC);
             this.pnTVOC.Controls.Add(this.lbTVOC);
-            this.pnTVOC.Location = new System.Drawing.Point(522, 5);
+            this.pnTVOC.Location = new System.Drawing.Point(513, 8);
             this.pnTVOC.Name = "pnTVOC";
             this.pnTVOC.Size = new System.Drawing.Size(164, 160);
             this.pnTVOC.TabIndex = 5;
@@ -372,6 +403,15 @@
             this.lbTVOCValue.TabIndex = 2;
             this.lbTVOCValue.Text = "10 PPM";
             // 
+            // picBoxTVOC
+            // 
+            this.picBoxTVOC.Image = global::Dashboard_Monitor.Properties.Resources.tvoc_icon;
+            this.picBoxTVOC.Location = new System.Drawing.Point(53, 35);
+            this.picBoxTVOC.Name = "picBoxTVOC";
+            this.picBoxTVOC.Size = new System.Drawing.Size(60, 69);
+            this.picBoxTVOC.TabIndex = 1;
+            this.picBoxTVOC.TabStop = false;
+            // 
             // lbTVOC
             // 
             this.lbTVOC.AutoSize = true;
@@ -384,13 +424,13 @@
             // 
             // pnPM25
             // 
-            this.pnPM25.BackColor = System.Drawing.Color.White;
+            this.pnPM25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(209)))), ((int)(((byte)(227)))));
             this.pnPM25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnPM25.CausesValidation = false;
             this.pnPM25.Controls.Add(this.lbPM25Value);
             this.pnPM25.Controls.Add(this.picBoxPM25);
             this.pnPM25.Controls.Add(this.lbPM25);
-            this.pnPM25.Location = new System.Drawing.Point(692, 5);
+            this.pnPM25.Location = new System.Drawing.Point(684, 8);
             this.pnPM25.Name = "pnPM25";
             this.pnPM25.Size = new System.Drawing.Size(164, 160);
             this.pnPM25.TabIndex = 5;
@@ -405,6 +445,15 @@
             this.lbPM25Value.TabIndex = 2;
             this.lbPM25Value.Text = "0.5 ug/m³";
             // 
+            // picBoxPM25
+            // 
+            this.picBoxPM25.Image = global::Dashboard_Monitor.Properties.Resources.pm2_5_icon;
+            this.picBoxPM25.Location = new System.Drawing.Point(52, 35);
+            this.picBoxPM25.Name = "picBoxPM25";
+            this.picBoxPM25.Size = new System.Drawing.Size(60, 69);
+            this.picBoxPM25.TabIndex = 1;
+            this.picBoxPM25.TabStop = false;
+            // 
             // lbPM25
             // 
             this.lbPM25.AutoSize = true;
@@ -417,13 +466,13 @@
             // 
             // pnPM10
             // 
-            this.pnPM10.BackColor = System.Drawing.Color.White;
+            this.pnPM10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(209)))), ((int)(((byte)(227)))));
             this.pnPM10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnPM10.CausesValidation = false;
             this.pnPM10.Controls.Add(this.lbPM10Value);
             this.pnPM10.Controls.Add(this.picBoxPM10);
             this.pnPM10.Controls.Add(this.lbPM10);
-            this.pnPM10.Location = new System.Drawing.Point(862, 5);
+            this.pnPM10.Location = new System.Drawing.Point(854, 8);
             this.pnPM10.Name = "pnPM10";
             this.pnPM10.Size = new System.Drawing.Size(164, 160);
             this.pnPM10.TabIndex = 7;
@@ -438,16 +487,6 @@
             this.lbPM10Value.TabIndex = 2;
             this.lbPM10Value.Text = "1.5 ug/m³";
             // 
-            // lbPM10
-            // 
-            this.lbPM10.AutoSize = true;
-            this.lbPM10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPM10.Location = new System.Drawing.Point(53, 6);
-            this.lbPM10.Name = "lbPM10";
-            this.lbPM10.Size = new System.Drawing.Size(54, 20);
-            this.lbPM10.TabIndex = 0;
-            this.lbPM10.Text = "PM10";
-            // 
             // picBoxPM10
             // 
             this.picBoxPM10.Image = global::Dashboard_Monitor.Properties.Resources.pm10_icon;
@@ -457,50 +496,15 @@
             this.picBoxPM10.TabIndex = 1;
             this.picBoxPM10.TabStop = false;
             // 
-            // picBoxPM25
+            // lbPM10
             // 
-            this.picBoxPM25.Image = global::Dashboard_Monitor.Properties.Resources.pm2_5_icon;
-            this.picBoxPM25.Location = new System.Drawing.Point(52, 35);
-            this.picBoxPM25.Name = "picBoxPM25";
-            this.picBoxPM25.Size = new System.Drawing.Size(60, 69);
-            this.picBoxPM25.TabIndex = 1;
-            this.picBoxPM25.TabStop = false;
-            // 
-            // picBoxTVOC
-            // 
-            this.picBoxTVOC.Image = global::Dashboard_Monitor.Properties.Resources.tvoc_icon;
-            this.picBoxTVOC.Location = new System.Drawing.Point(53, 35);
-            this.picBoxTVOC.Name = "picBoxTVOC";
-            this.picBoxTVOC.Size = new System.Drawing.Size(60, 69);
-            this.picBoxTVOC.TabIndex = 1;
-            this.picBoxTVOC.TabStop = false;
-            // 
-            // picBoxCO2
-            // 
-            this.picBoxCO2.Image = global::Dashboard_Monitor.Properties.Resources.co2_icon;
-            this.picBoxCO2.Location = new System.Drawing.Point(52, 40);
-            this.picBoxCO2.Name = "picBoxCO2";
-            this.picBoxCO2.Size = new System.Drawing.Size(60, 69);
-            this.picBoxCO2.TabIndex = 1;
-            this.picBoxCO2.TabStop = false;
-            // 
-            // picBoxHumidity
-            // 
-            this.picBoxHumidity.Image = global::Dashboard_Monitor.Properties.Resources.humidity_icon;
-            this.picBoxHumidity.Location = new System.Drawing.Point(52, 42);
-            this.picBoxHumidity.Name = "picBoxHumidity";
-            this.picBoxHumidity.Size = new System.Drawing.Size(60, 69);
-            this.picBoxHumidity.TabIndex = 1;
-            this.picBoxHumidity.TabStop = false;
-            // 
-            // picBoxTemp
-            // 
-            this.picBoxTemp.Image = global::Dashboard_Monitor.Properties.Resources.temperature_termometer_icon;
-            this.picBoxTemp.Location = new System.Drawing.Point(52, 44);
-            this.picBoxTemp.Name = "picBoxTemp";
-            this.picBoxTemp.Size = new System.Drawing.Size(60, 69);
-            this.picBoxTemp.TabIndex = 1;
-            this.picBoxTemp.TabStop = false;
+            this.lbPM10.AutoSize = true;
+            this.lbPM10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPM10.Location = new System.Drawing.Point(53, 6);
+            this.lbPM10.Name = "lbPM10";
+            this.lbPM10.Size = new System.Drawing.Size(54, 20);
+            this.lbPM10.TabIndex = 0;
+            this.lbPM10.Text = "PM10";
             // 
             // statusStrip1
             // 
@@ -534,81 +538,51 @@
             this.tabControl1.Controls.Add(this.tabTVOC);
             this.tabControl1.Controls.Add(this.tabPM25);
             this.tabControl1.Controls.Add(this.tabPM10);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.tabControl1.ItemSize = new System.Drawing.Size(50, 20);
-            this.tabControl1.Location = new System.Drawing.Point(12, 181);
+            this.tabControl1.Location = new System.Drawing.Point(0, 181);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1014, 439);
-            this.tabControl1.TabIndex = 9;
+            this.tabControl1.Size = new System.Drawing.Size(1026, 439);
+            this.tabControl1.TabIndex = 12;
             // 
             // tabTEMP
             // 
-            this.tabTEMP.BackColor = System.Drawing.Color.Transparent;
+            this.tabTEMP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(63)))));
             this.tabTEMP.Controls.Add(this.chartTemperature);
             this.tabTEMP.Location = new System.Drawing.Point(4, 24);
             this.tabTEMP.Name = "tabTEMP";
             this.tabTEMP.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTEMP.Size = new System.Drawing.Size(1006, 411);
+            this.tabTEMP.Size = new System.Drawing.Size(1018, 411);
             this.tabTEMP.TabIndex = 0;
             this.tabTEMP.Text = "TEMP";
             // 
             // tabRH
             // 
+            this.tabRH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(63)))));
             this.tabRH.Controls.Add(this.chartUmidade);
             this.tabRH.Location = new System.Drawing.Point(4, 24);
             this.tabRH.Name = "tabRH";
             this.tabRH.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRH.Size = new System.Drawing.Size(1006, 411);
+            this.tabRH.Size = new System.Drawing.Size(1018, 411);
             this.tabRH.TabIndex = 1;
             this.tabRH.Text = "RH%";
-            this.tabRH.UseVisualStyleBackColor = true;
             // 
             // tabCO2
             // 
+            this.tabCO2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(63)))));
             this.tabCO2.Controls.Add(this.chartCO2);
             this.tabCO2.Location = new System.Drawing.Point(4, 24);
             this.tabCO2.Name = "tabCO2";
-            this.tabCO2.Size = new System.Drawing.Size(1006, 411);
+            this.tabCO2.Size = new System.Drawing.Size(1018, 411);
             this.tabCO2.TabIndex = 2;
             this.tabCO2.Text = "CO2";
-            this.tabCO2.UseVisualStyleBackColor = true;
-            // 
-            // tabTVOC
-            // 
-            this.tabTVOC.Controls.Add(this.chartTVOC);
-            this.tabTVOC.Location = new System.Drawing.Point(4, 24);
-            this.tabTVOC.Name = "tabTVOC";
-            this.tabTVOC.Size = new System.Drawing.Size(1006, 411);
-            this.tabTVOC.TabIndex = 3;
-            this.tabTVOC.Text = "TVOC";
-            this.tabTVOC.UseVisualStyleBackColor = true;
-            // 
-            // tabPM25
-            // 
-            this.tabPM25.Controls.Add(this.chartPM25);
-            this.tabPM25.Location = new System.Drawing.Point(4, 24);
-            this.tabPM25.Name = "tabPM25";
-            this.tabPM25.Size = new System.Drawing.Size(1006, 411);
-            this.tabPM25.TabIndex = 4;
-            this.tabPM25.Text = "PM2.5";
-            this.tabPM25.UseVisualStyleBackColor = true;
-            // 
-            // tabPM10
-            // 
-            this.tabPM10.Controls.Add(this.charPM10);
-            this.tabPM10.Location = new System.Drawing.Point(4, 24);
-            this.tabPM10.Name = "tabPM10";
-            this.tabPM10.Size = new System.Drawing.Size(1006, 411);
-            this.tabPM10.TabIndex = 5;
-            this.tabPM10.Text = "PM10";
-            this.tabPM10.UseVisualStyleBackColor = true;
             // 
             // chartCO2
             // 
-            this.chartCO2.BackColor = System.Drawing.Color.Gray;
-            this.chartCO2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.chartCO2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))));
+            this.chartCO2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
             chartArea3.AxisX.Interval = 1D;
             chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea3.AxisX.IsLabelAutoFit = false;
@@ -628,13 +602,16 @@
             chartArea3.AxisY.Interval = 50D;
             chartArea3.AxisY.IsLabelAutoFit = false;
             chartArea3.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            chartArea3.AxisY.LabelStyle.Interval = 100D;
+            chartArea3.AxisY.LabelStyle.Interval = 200D;
             chartArea3.AxisY.LineColor = System.Drawing.Color.Transparent;
             chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
             chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea3.AxisY.MajorTickMark.Enabled = false;
-            chartArea3.AxisY.Maximum = 1000D;
+            chartArea3.AxisY.Maximum = 2000D;
             chartArea3.AxisY.Minimum = 200D;
+            stripLine1.BorderColor = System.Drawing.Color.Lime;
+            stripLine1.BorderWidth = 2;
+            chartArea3.AxisY.StripLines.Add(stripLine1);
             chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
             chartArea3.BorderWidth = 5;
             chartArea3.Name = "ChartArea1";
@@ -644,19 +621,28 @@
             legend3.IsTextAutoFit = false;
             legend3.Name = "Legend1";
             this.chartCO2.Legends.Add(legend3);
-            this.chartCO2.Location = new System.Drawing.Point(6, 4);
+            this.chartCO2.Location = new System.Drawing.Point(3, 3);
             this.chartCO2.Name = "chartCO2";
             series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series3.BorderWidth = 5;
+            series3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))));
+            series3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            series3.BorderWidth = 3;
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series3.Color = System.Drawing.Color.Firebrick;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(88)))), ((int)(((byte)(127)))));
             series3.Legend = "Legend1";
             series3.LegendText = "Temperatura em °C";
             series3.Name = "CO2";
+            series3.Points.Add(dataPoint1);
             series3.ShadowColor = System.Drawing.Color.Transparent;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Lime;
+            series4.Legend = "Legend1";
+            series4.Name = "CO2Limit";
             this.chartCO2.Series.Add(series3);
-            this.chartCO2.Size = new System.Drawing.Size(994, 404);
+            this.chartCO2.Series.Add(series4);
+            this.chartCO2.Size = new System.Drawing.Size(1012, 405);
             this.chartCO2.TabIndex = 1;
             this.chartCO2.Text = "CO2";
             title3.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -665,10 +651,20 @@
             title3.Text = "Dióxido de Carbono (CO2)";
             this.chartCO2.Titles.Add(title3);
             // 
+            // tabTVOC
+            // 
+            this.tabTVOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(63)))));
+            this.tabTVOC.Controls.Add(this.chartTVOC);
+            this.tabTVOC.Location = new System.Drawing.Point(4, 24);
+            this.tabTVOC.Name = "tabTVOC";
+            this.tabTVOC.Size = new System.Drawing.Size(1018, 411);
+            this.tabTVOC.TabIndex = 3;
+            this.tabTVOC.Text = "TVOC";
+            // 
             // chartTVOC
             // 
-            this.chartTVOC.BackColor = System.Drawing.Color.Gray;
-            this.chartTVOC.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.chartTVOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))));
+            this.chartTVOC.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
             chartArea4.AxisX.Interval = 1D;
             chartArea4.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea4.AxisX.IsLabelAutoFit = false;
@@ -704,18 +700,18 @@
             legend4.IsTextAutoFit = false;
             legend4.Name = "Legend1";
             this.chartTVOC.Legends.Add(legend4);
-            this.chartTVOC.Location = new System.Drawing.Point(6, 4);
+            this.chartTVOC.Location = new System.Drawing.Point(3, 3);
             this.chartTVOC.Name = "chartTVOC";
-            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series4.BorderWidth = 5;
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.Firebrick;
-            series4.Legend = "Legend1";
-            series4.LegendText = "Temperatura em °C";
-            series4.Name = "TVOC";
-            series4.ShadowColor = System.Drawing.Color.Transparent;
-            this.chartTVOC.Series.Add(series4);
-            this.chartTVOC.Size = new System.Drawing.Size(994, 404);
+            series5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series5.BorderWidth = 5;
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.Firebrick;
+            series5.Legend = "Legend1";
+            series5.LegendText = "Temperatura em °C";
+            series5.Name = "TVOC";
+            series5.ShadowColor = System.Drawing.Color.Transparent;
+            this.chartTVOC.Series.Add(series5);
+            this.chartTVOC.Size = new System.Drawing.Size(1012, 405);
             this.chartTVOC.TabIndex = 1;
             title4.Alignment = System.Drawing.ContentAlignment.TopLeft;
             title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
@@ -723,10 +719,20 @@
             title4.Text = "TVOC - Total Volitile Organic Compound";
             this.chartTVOC.Titles.Add(title4);
             // 
+            // tabPM25
+            // 
+            this.tabPM25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(63)))));
+            this.tabPM25.Controls.Add(this.chartPM25);
+            this.tabPM25.Location = new System.Drawing.Point(4, 24);
+            this.tabPM25.Name = "tabPM25";
+            this.tabPM25.Size = new System.Drawing.Size(1018, 411);
+            this.tabPM25.TabIndex = 4;
+            this.tabPM25.Text = "PM2.5";
+            // 
             // chartPM25
             // 
-            this.chartPM25.BackColor = System.Drawing.Color.Gray;
-            this.chartPM25.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.chartPM25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))));
+            this.chartPM25.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
             chartArea5.AxisX.Interval = 1D;
             chartArea5.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea5.AxisX.IsLabelAutoFit = false;
@@ -763,28 +769,28 @@
             legend5.IsTextAutoFit = false;
             legend5.Name = "Legend1";
             this.chartPM25.Legends.Add(legend5);
-            this.chartPM25.Location = new System.Drawing.Point(6, 4);
+            this.chartPM25.Location = new System.Drawing.Point(3, 3);
             this.chartPM25.Name = "chartPM25";
-            series5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series5.BorderWidth = 5;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series5.Color = System.Drawing.Color.Firebrick;
-            series5.Legend = "Legend1";
-            series5.LegendText = "PM 2.5";
-            series5.Name = "pm25";
-            series5.ShadowColor = System.Drawing.Color.Transparent;
             series6.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series6.BorderWidth = 5;
             series6.ChartArea = "ChartArea1";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series6.Color = System.Drawing.Color.Gold;
+            series6.Color = System.Drawing.Color.Firebrick;
             series6.Legend = "Legend1";
-            series6.LegendText = "PM 10";
-            series6.Name = "pm10";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chartPM25.Series.Add(series5);
+            series6.LegendText = "PM 2.5";
+            series6.Name = "pm25";
+            series6.ShadowColor = System.Drawing.Color.Transparent;
+            series7.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series7.Color = System.Drawing.Color.Gold;
+            series7.Legend = "Legend1";
+            series7.LegendText = "PM 10";
+            series7.Name = "pm10";
+            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.chartPM25.Series.Add(series6);
-            this.chartPM25.Size = new System.Drawing.Size(994, 404);
+            this.chartPM25.Series.Add(series7);
+            this.chartPM25.Size = new System.Drawing.Size(1012, 405);
             this.chartPM25.TabIndex = 1;
             title5.Alignment = System.Drawing.ContentAlignment.TopLeft;
             title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
@@ -792,10 +798,20 @@
             title5.Text = "PM2.5 & PM10";
             this.chartPM25.Titles.Add(title5);
             // 
+            // tabPM10
+            // 
+            this.tabPM10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(63)))));
+            this.tabPM10.Controls.Add(this.charPM10);
+            this.tabPM10.Location = new System.Drawing.Point(4, 24);
+            this.tabPM10.Name = "tabPM10";
+            this.tabPM10.Size = new System.Drawing.Size(1018, 411);
+            this.tabPM10.TabIndex = 5;
+            this.tabPM10.Text = "PM10";
+            // 
             // charPM10
             // 
-            this.charPM10.BackColor = System.Drawing.Color.Gray;
-            this.charPM10.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.charPM10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))));
+            this.charPM10.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
             chartArea6.AxisX.Interval = 1D;
             chartArea6.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea6.AxisX.IsLabelAutoFit = false;
@@ -831,19 +847,19 @@
             legend6.IsTextAutoFit = false;
             legend6.Name = "Legend1";
             this.charPM10.Legends.Add(legend6);
-            this.charPM10.Location = new System.Drawing.Point(6, 4);
+            this.charPM10.Location = new System.Drawing.Point(3, 3);
             this.charPM10.Name = "charPM10";
-            series7.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series7.BorderWidth = 5;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series7.Color = System.Drawing.Color.Firebrick;
-            series7.Legend = "Legend1";
-            series7.LegendText = "Temperatura em °C";
-            series7.Name = "Temp";
-            series7.ShadowColor = System.Drawing.Color.Transparent;
-            this.charPM10.Series.Add(series7);
-            this.charPM10.Size = new System.Drawing.Size(994, 404);
+            series8.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series8.BorderWidth = 5;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series8.Color = System.Drawing.Color.Firebrick;
+            series8.Legend = "Legend1";
+            series8.LegendText = "Temperatura em °C";
+            series8.Name = "Temp";
+            series8.ShadowColor = System.Drawing.Color.Transparent;
+            this.charPM10.Series.Add(series8);
+            this.charPM10.Size = new System.Drawing.Size(1012, 405);
             this.charPM10.TabIndex = 1;
             this.charPM10.Text = "Temperature";
             title6.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -852,11 +868,19 @@
             title6.Text = "Temperatura";
             this.charPM10.Titles.Add(title6);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(63)))));
+            this.panel1.Location = new System.Drawing.Point(2, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1026, 178);
+            this.panel1.TabIndex = 13;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1031, 645);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
@@ -866,7 +890,9 @@
             this.Controls.Add(this.pnCO2);
             this.Controls.Add(this.pnHumidity);
             this.Controls.Add(this.pnTemp);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmDashboard";
             this.ShowIcon = false;
             this.Text = "Dashboard Monitor";
@@ -874,35 +900,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartTemperature)).EndInit();
             this.pnTemp.ResumeLayout(false);
             this.pnTemp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTemp)).EndInit();
             this.pnHumidity.ResumeLayout(false);
             this.pnHumidity.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxHumidity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartUmidade)).EndInit();
             this.pnCO2.ResumeLayout(false);
             this.pnCO2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCO2)).EndInit();
             this.pnTVOC.ResumeLayout(false);
             this.pnTVOC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxTVOC)).EndInit();
             this.pnPM25.ResumeLayout(false);
             this.pnPM25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPM25)).EndInit();
             this.pnPM10.ResumeLayout(false);
             this.pnPM10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPM10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPM25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxTVOC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCO2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxHumidity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxTemp)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabTEMP.ResumeLayout(false);
             this.tabRH.ResumeLayout(false);
             this.tabCO2.ResumeLayout(false);
-            this.tabTVOC.ResumeLayout(false);
-            this.tabPM25.ResumeLayout(false);
-            this.tabPM10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartCO2)).EndInit();
+            this.tabTVOC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartTVOC)).EndInit();
+            this.tabPM25.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartPM25)).EndInit();
+            this.tabPM10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.charPM10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -952,6 +978,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartTVOC;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartPM25;
         private System.Windows.Forms.DataVisualization.Charting.Chart charPM10;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
