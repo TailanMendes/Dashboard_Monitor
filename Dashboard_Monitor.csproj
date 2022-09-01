@@ -157,7 +157,7 @@
     <None Include="Resources\tvoc_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pm10_icon.png" />
+    <None Include="Resources\10.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

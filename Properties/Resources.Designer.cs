@@ -63,6 +63,16 @@ namespace Dashboard_Monitor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _10 {
+            get {
+                object obj = ResourceManager.GetObject("10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap co2_icon {
             get {
                 object obj = ResourceManager.GetObject("co2_icon", resourceCulture);
@@ -76,16 +86,6 @@ namespace Dashboard_Monitor.Properties {
         internal static System.Drawing.Bitmap humidity_icon {
             get {
                 object obj = ResourceManager.GetObject("humidity_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pm10_icon {
-            get {
-                object obj = ResourceManager.GetObject("pm10_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
