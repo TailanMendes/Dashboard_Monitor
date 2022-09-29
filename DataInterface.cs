@@ -20,7 +20,8 @@ namespace Dashboard_Monitor
             try
             {
                 var web3 = new Web3("https://rinkeby.infura.io/v3/ea9cd517fe4c4782a5f7ee526a578ec5");
-                var contractAddress = "0x495498a9F628Ce581AedA1B5bb6e598090717Df7";
+                //var contractAddress = "0x495498a9F628Ce581AedA1B5bb6e598090717Df7";
+                var contractAddress = "0x8398bd7656e8e3ca4Ca8F35445530292368fc1c9";
                 var contractHandler = web3.Eth.GetContractHandler(contractAddress);
 
                 /** Function: getMeasure**/
@@ -28,7 +29,7 @@ namespace Dashboard_Monitor
 
                 storeDataIntoFile(getMeasureFunctionReturn);
 
-                var message = string.Join(Environment.NewLine, getMeasureFunctionReturn);
+                //var message = string.Join(Environment.NewLine, getMeasureFunctionReturn);
 
             }
             catch (Exception e)
@@ -75,9 +76,9 @@ namespace Dashboard_Monitor
             string[] subs = s.Split('|');
             string epochtime;
 
-            if (subs.Length == 5)
+            if (subs.Length == 7)
             {
-                epochtime = subs[4];
+                epochtime = subs[6];
             } else
             {
                 epochtime = subs[2];

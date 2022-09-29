@@ -15,6 +15,7 @@ namespace Dashboard_Monitor
     public partial class frmDashboard : Form
     {
         DataInterface bcInt;
+        private double average_temp = 0;
 
         public frmDashboard()
         {
@@ -42,7 +43,7 @@ namespace Dashboard_Monitor
 
         private void DownloadData(object sender, EventArgs e)
         {
-           // this.bcInt.getContractData();
+            this.bcInt.getContractData();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace Dashboard_Monitor
 
             this.lbCO2Value.Text = getCO2FromString(last_line) + " PPM";
 
-            this.lbTVOCValue.Text = getTVOCFromString(last_line) + " PPM";
+            this.lbTVOCValue.Text = getTVOCFromString(last_line).ToString() + " PPM";
 
             this.lbPM25Value.Text = getPM25FromString(last_line) + " ug/m³";
 
@@ -78,6 +79,13 @@ namespace Dashboard_Monitor
 
         private void updateTempChart()
         {
+            double temperature = 0;
+            double humidity = 0;
+            uint co2 = 0;
+            double tvoc = 0;
+            double pm25 = 0;
+            double pm10 = 0;
+
             this.chartTemperature.Series[0].Points.Clear();
             this.chartUmidade.Series[0].Points.Clear();
             this.chartCO2.Series[0].Points.Clear();
@@ -91,20 +99,29 @@ namespace Dashboard_Monitor
             {
                 int current_hour = -1;
                 string line;
+                double sum_temp = 0;
+                int count_measures_day = 0;
+                uint count_same_hour = 0;
+
                 while ((line = reader.ReadLine()) != null)
                 {
+                    /////////////////// ORIGINAL //////////////////////////////////////
+                    /*
                     double temperature = Convert.ToDouble(getTempFromString(line));
                     double humidity = Convert.ToDouble(getUmidityFromString(line));
                     uint co2 = Convert.ToUInt32(getCO2FromString(line));
-                    uint tvoc = Convert.ToUInt32(getTVOCFromString(line));
+                    double tvoc = getTVOCFromString(line);
                     double pm25 = Convert.ToDouble(getPM25FromString(line));
                     double pm10 = Convert.ToDouble(getPM10FromString(line));
+                    */
+
+
 
                     DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(line))).ToLocalTime();
 
                     
-
-                    if (dateTimeOffset.Day == 31 & dateTimeOffset.Hour != current_hour)
+                    // original
+                   /* if ((dateTimeOffset.Day == dateTimePicker1.Value.Day) & dateTimeOffset.Hour != current_hour)
                     {
                         current_hour = dateTimeOffset.Hour;
                         chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
@@ -113,8 +130,52 @@ namespace Dashboard_Monitor
                         chartTVOC.Series[0].Points.AddXY(dateTimeOffset.Hour, tvoc);
                         chartPM25.Series[0].Points.AddXY(dateTimeOffset.Hour, pm25);
                         chartPM25.Series[1].Points.AddXY(dateTimeOffset.Hour, pm10);
+
+                    }*/
+
+                    if((dateTimeOffset.Day == dateTimePicker1.Value.Day) & (dateTimeOffset.Month == dateTimePicker1.Value.Month))
+                    {
+                        temperature += Convert.ToDouble(getTempFromString(line));
+                        humidity += Convert.ToDouble(getUmidityFromString(line));
+                        co2 += Convert.ToUInt32(getCO2FromString(line));
+                        tvoc += getTVOCFromString(line);
+                        pm25 += Convert.ToDouble(getPM25FromString(line));
+                        pm10 += Convert.ToDouble(getPM10FromString(line));
+
+                        count_same_hour++;
+
+                        if (dateTimeOffset.Hour != current_hour)
+                        {
+                            current_hour = dateTimeOffset.Hour;
+
+                            temperature = temperature / count_same_hour;
+                            humidity = humidity / count_same_hour;
+                            co2 = co2 / count_same_hour;
+                            tvoc = tvoc / count_same_hour;
+                            pm25 = pm25 / count_same_hour;
+                            pm10 = pm10 / count_same_hour;
+
+                            chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
+                            chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Hour, humidity);
+                            chartCO2.Series[0].Points.AddXY(dateTimeOffset.Hour, co2);
+                            chartTVOC.Series[0].Points.AddXY(dateTimeOffset.Hour, tvoc);
+                            chartPM25.Series[0].Points.AddXY(dateTimeOffset.Hour, pm25);
+                            chartPM25.Series[1].Points.AddXY(dateTimeOffset.Hour, pm10);
+
+                            count_same_hour = 0;
+
+                            temperature = 0;
+                            humidity = 0;
+                            co2 = 0;
+                            tvoc = 0;
+                            pm25 = 0;
+                            pm10 = 0;
+                        }
+
                     }
                 }
+
+                average_temp = sum_temp / count_measures_day;
             }
         }
 
@@ -157,11 +218,11 @@ namespace Dashboard_Monitor
             return sCO2;
         }
 
-        private string getTVOCFromString(String s)
+        private double getTVOCFromString(String s)
         {
             string[] subs = s.Split('|');
-            var sTVOC = subs[3];
-            return sTVOC;
+            double TVOC = Convert.ToDouble(subs[3]);
+            return TVOC;
         }
 
         private string getPM25FromString(String s)
@@ -181,6 +242,13 @@ namespace Dashboard_Monitor
         private void chartTemperature_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmDayData frm = new frmDayData();
+            frm.date = this.dateTimePicker1.Value.Date;
+            frm.ShowDialog();
         }
     }
 }
