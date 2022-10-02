@@ -67,9 +67,9 @@ namespace Dashboard_Monitor
 
             this.lbTVOCValue.Text = getTVOCFromString(last_line).ToString() + " PPM";
 
-            this.lbPM25Value.Text = getPM25FromString(last_line) + " ug/m³";
+            this.lbPM25Value.Text = getPM25FromString(last_line) + " µg/m³";
 
-            this.lbPM10Value.Text = getPM10FromString(last_line) + " ug/m³";
+            this.lbPM10Value.Text = getPM10FromString(last_line) + " µg/m³";
 
             // Convert Epoch to date time and update label
             this.toolStripSensorReadTime.Text = (DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(last_line))).ToLocalTime()).ToString();
@@ -86,12 +86,15 @@ namespace Dashboard_Monitor
             double pm25 = 0;
             double pm10 = 0;
 
+            uint count_same_hour = 0;
+            bool day_found = false;
+
             this.chartTemperature.Series[0].Points.Clear();
             this.chartUmidade.Series[0].Points.Clear();
             this.chartCO2.Series[0].Points.Clear();
             this.chartTVOC.Series[0].Points.Clear();
             this.chartPM25.Series[0].Points.Clear();
-            this.chartPM25.Series[1].Points.Clear();
+            this.chartPM10.Series[0].Points.Clear();
 
             string data_path = @"c:\\iaq_data.ms";
 
@@ -101,7 +104,6 @@ namespace Dashboard_Monitor
                 string line;
                 double sum_temp = 0;
                 int count_measures_day = 0;
-                uint count_same_hour = 0;
 
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -119,22 +121,56 @@ namespace Dashboard_Monitor
 
                     DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(line))).ToLocalTime();
 
-                    
+
                     // original
-                   /* if ((dateTimeOffset.Day == dateTimePicker1.Value.Day) & dateTimeOffset.Hour != current_hour)
-                    {
-                        current_hour = dateTimeOffset.Hour;
-                        chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
-                        chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Hour, humidity);
-                        chartCO2.Series[0].Points.AddXY(dateTimeOffset.Hour, co2);
-                        chartTVOC.Series[0].Points.AddXY(dateTimeOffset.Hour, tvoc);
-                        chartPM25.Series[0].Points.AddXY(dateTimeOffset.Hour, pm25);
-                        chartPM25.Series[1].Points.AddXY(dateTimeOffset.Hour, pm10);
+                    /* if ((dateTimeOffset.Day == dateTimePicker1.Value.Day) & dateTimeOffset.Hour != current_hour)
+                     {
+                         current_hour = dateTimeOffset.Hour;
+                         chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
+                         chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Hour, humidity);
+                         chartCO2.Series[0].Points.AddXY(dateTimeOffset.Hour, co2);
+                         chartTVOC.Series[0].Points.AddXY(dateTimeOffset.Hour, tvoc);
+                         chartPM25.Series[0].Points.AddXY(dateTimeOffset.Hour, pm25);
+                         chartPM25.Series[1].Points.AddXY(dateTimeOffset.Hour, pm10);
 
-                    }*/
+                     }*/
 
-                    if((dateTimeOffset.Day == dateTimePicker1.Value.Day) & (dateTimeOffset.Month == dateTimePicker1.Value.Month))
+                    if ((dateTimeOffset.Day == dateTimePicker1.Value.Day) && (dateTimeOffset.Month == dateTimePicker1.Value.Month))
                     {
+                        day_found = true;
+                        if (dateTimeOffset.Hour != current_hour)
+                        {
+                            if (current_hour != -1)
+                            {
+                                temperature = temperature / count_same_hour;
+                                humidity = humidity / count_same_hour;
+                                co2 = co2 / count_same_hour;
+                                tvoc = tvoc / count_same_hour;
+                                pm25 = pm25 / count_same_hour;
+                                pm10 = pm10 / count_same_hour;
+
+                                chartTemperature.Series[0].Points.AddXY(current_hour, temperature);
+                                chartUmidade.Series[0].Points.AddXY(current_hour, humidity);
+                                chartCO2.Series[0].Points.AddXY(current_hour, co2);
+                                chartTVOC.Series[0].Points.AddXY(current_hour, tvoc);
+                                chartPM25.Series[0].Points.AddXY(current_hour, pm25);
+                                chartPM10.Series[0].Points.AddXY(current_hour, pm10);
+
+                                current_hour = dateTimeOffset.Hour;
+                                count_same_hour = 0;
+
+                                temperature = 0;
+                                humidity = 0;
+                                co2 = 0;
+                                tvoc = 0;
+                                pm25 = 0;
+                                pm10 = 0;
+                            } else
+                            {
+                                current_hour = dateTimeOffset.Hour;
+                            }
+                        }
+
                         temperature += Convert.ToDouble(getTempFromString(line));
                         humidity += Convert.ToDouble(getUmidityFromString(line));
                         co2 += Convert.ToUInt32(getCO2FromString(line));
@@ -143,36 +179,35 @@ namespace Dashboard_Monitor
                         pm10 += Convert.ToDouble(getPM10FromString(line));
 
                         count_same_hour++;
+                    } else if (day_found == true)
+                    {   
+                        temperature = temperature / count_same_hour;
+                        humidity = humidity / count_same_hour;
+                        co2 = co2 / count_same_hour;
+                        tvoc = tvoc / count_same_hour;
+                        pm25 = pm25 / count_same_hour;
+                        pm10 = pm10 / count_same_hour;
 
-                        if (dateTimeOffset.Hour != current_hour)
-                        {
-                            current_hour = dateTimeOffset.Hour;
+                        chartTemperature.Series[0].Points.AddXY(current_hour, temperature);
+                        chartUmidade.Series[0].Points.AddXY(current_hour, humidity);
+                        chartCO2.Series[0].Points.AddXY(current_hour, co2);
+                        chartTVOC.Series[0].Points.AddXY(current_hour, tvoc);
+                        chartPM25.Series[0].Points.AddXY(current_hour, pm25);
+                        chartPM10.Series[0].Points.AddXY(current_hour, pm10);
 
-                            temperature = temperature / count_same_hour;
-                            humidity = humidity / count_same_hour;
-                            co2 = co2 / count_same_hour;
-                            tvoc = tvoc / count_same_hour;
-                            pm25 = pm25 / count_same_hour;
-                            pm10 = pm10 / count_same_hour;
+                        count_same_hour = 0;
 
-                            chartTemperature.Series[0].Points.AddXY(dateTimeOffset.Hour, temperature);
-                            chartUmidade.Series[0].Points.AddXY(dateTimeOffset.Hour, humidity);
-                            chartCO2.Series[0].Points.AddXY(dateTimeOffset.Hour, co2);
-                            chartTVOC.Series[0].Points.AddXY(dateTimeOffset.Hour, tvoc);
-                            chartPM25.Series[0].Points.AddXY(dateTimeOffset.Hour, pm25);
-                            chartPM25.Series[1].Points.AddXY(dateTimeOffset.Hour, pm10);
+                        temperature = 0;
+                        humidity = 0;
+                        co2 = 0;
+                        tvoc = 0;
+                        pm25 = 0;
+                        pm10 = 0;
 
-                            count_same_hour = 0;
-
-                            temperature = 0;
-                            humidity = 0;
-                            co2 = 0;
-                            tvoc = 0;
-                            pm25 = 0;
-                            pm10 = 0;
-                        }
-
+                        day_found = false;
                     }
+
+                   
                 }
 
                 average_temp = sum_temp / count_measures_day;
@@ -249,6 +284,11 @@ namespace Dashboard_Monitor
             frmDayData frm = new frmDayData();
             frm.date = this.dateTimePicker1.Value.Date;
             frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           // this.chartTVOC.ChartAreas.
         }
     }
 }

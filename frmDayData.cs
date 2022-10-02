@@ -61,7 +61,7 @@ namespace Dashboard_Monitor
                    
                     DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToUInt32(getEpochTime(line))).ToLocalTime();
 
-                    if ((dateTimeOffset.Day == this.date.Day) & (dateTimeOffset.Month == this.date.Month))
+                    if ((dateTimeOffset.Day == this.date.Day) && (dateTimeOffset.Month == this.date.Month))
                     {
                         count_total++;
 
@@ -100,6 +100,11 @@ namespace Dashboard_Monitor
                        
                     }
                 }
+
+                if (count_total == 0)
+                {
+                    MessageBox.Show("Sem dados do dia selecionado!", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
             media_temp = media_temp / count_total;
@@ -109,13 +114,140 @@ namespace Dashboard_Monitor
             media_pm25 = media_pm25 / count_total;
             media_pm10 = media_pm10 / count_total;
 
+            /** Temperatura **/
+            if (media_temp >= 20.0 & media_temp <= 26.0)
+            {
+                this.dataGridView1.Rows.Add("TEMPERATURA (°C)", max_temp, min_temp, media_temp.ToString("F"), "BOM");
+                this.dataGridView1.Rows[0].Cells[4].Style.BackColor = Color.Blue;
+            } 
+            else if (media_temp >= 26.1 && media_temp <= 29.0)
+            {
+                this.dataGridView1.Rows.Add("TEMPERATURA (°C)", max_temp, min_temp, media_temp.ToString("F"), "MODERADO");
+                this.dataGridView1.Rows[0].Cells[4].Style.BackColor = Color.Green;
+            } 
+            else if (media_temp >= 29.1 && media_temp <= 39.0)
+            {
+                this.dataGridView1.Rows.Add("TEMPERATURA (°C)", max_temp, min_temp, media_temp.ToString("F"), "POUCO SALDÁVEL");
+                this.dataGridView1.Rows[0].Cells[4].Style.BackColor = Color.Yellow;
+            } 
+            else if (media_temp > 39.0)
+            {
+                this.dataGridView1.Rows.Add("TEMPERATURA (°C)", max_temp, min_temp, media_temp.ToString("F"), "PERIGOSO");
+                this.dataGridView1.Rows[0].Cells[4].Style.BackColor = Color.Red;
+            }
 
-            this.dataGridView1.Rows.Add("TEMPERATURA (ºC)", max_temp, min_temp, media_temp.ToString("F"));
-            this.dataGridView1.Rows.Add("UMIDADE (%)", max_humi, min_humi, media_humi.ToString("F"));
-            this.dataGridView1.Rows.Add("CO2 (PPM)", max_co2, min_co2, media_co2.ToString("F"));
-            this.dataGridView1.Rows.Add("TVOC (PPM)", max_tvoc, min_tvoc, media_tvoc);
-            this.dataGridView1.Rows.Add("PM10 (ug/m³)", max_pm10, min_pm10, media_pm10.ToString("F"));
-            this.dataGridView1.Rows.Add("PM2.5 (ug/m³)", max_pm25, min_pm25, media_pm25.ToString("F"));
+            /** Umidade Relativa  **/
+            if (media_humi >= 40.0 & media_humi <= 70.0)
+            {
+                this.dataGridView1.Rows.Add("UMIDADE (%)", max_humi, min_humi, media_humi.ToString("F"), "BOM");
+                this.dataGridView1.Rows[1].Cells[4].Style.BackColor = Color.Blue;
+            }
+            else if (media_humi >= 70.1 && media_humi <= 80.0)
+            {
+                this.dataGridView1.Rows.Add("UMIDADE (%)", max_humi, min_humi, media_humi.ToString("F"), "MODERADO");
+                this.dataGridView1.Rows[1].Cells[4].Style.BackColor = Color.Green;
+            }
+            else if (media_humi >= 80.1 && media_humi <= 90.0)
+            {
+                this.dataGridView1.Rows.Add("UMIDADE (%)", max_humi, min_humi, media_humi.ToString("F"), "POUCO SAUDÁVEL");
+                this.dataGridView1.Rows[1].Cells[4].Style.BackColor = Color.Yellow;
+            }
+            else if (media_humi > 90.0)
+            {
+                this.dataGridView1.Rows.Add("UMIDADE (%)", max_humi, min_humi, media_humi.ToString("F"), "PERIGOSO");
+                this.dataGridView1.Rows[1].Cells[4].Style.BackColor = Color.Red;
+            }
+
+            /** CO2 Classificação AQI  **/
+            if (media_co2 >= 340.0 & media_co2 <= 600.0)
+            {
+                this.dataGridView1.Rows.Add("CO2 (PPM)", max_co2, min_co2, media_co2.ToString("F"), "BOM");
+                this.dataGridView1.Rows[2].Cells[4].Style.BackColor = Color.Blue;
+            }
+            else if (media_co2 >= 600.1 && media_co2 <= 1000.0)
+            {
+                this.dataGridView1.Rows.Add("CO2 (PPM)", max_co2, min_co2, media_co2.ToString("F"), "MODERADO");
+                this.dataGridView1.Rows[2].Cells[4].Style.BackColor = Color.Green;
+            }
+            else if (media_co2 >= 1000.1 && media_co2 <= 1500.0)
+            {
+                this.dataGridView1.Rows.Add("CO2 (PPM)", max_co2, min_co2, media_co2.ToString("F"), "POUCO SAUDÁVEL");
+                this.dataGridView1.Rows[2].Cells[4].Style.BackColor = Color.Yellow;
+            }
+            else if (media_co2 > 1500.0)
+            {
+                this.dataGridView1.Rows.Add("CO2 (PPM)", max_co2, min_co2, media_co2.ToString("F"), "PERISOGO");
+                this.dataGridView1.Rows[2].Cells[4].Style.BackColor = Color.Red;
+            }
+
+            /** TVOC Classificação AQI  **/
+            if (media_tvoc >= 0.0 & media_tvoc <= 0.087)
+            {
+                this.dataGridView1.Rows.Add("TVOC (PPM)", max_tvoc, min_tvoc, Math.Round(media_tvoc, 3), "BOM");
+                this.dataGridView1.Rows[3].Cells[4].Style.BackColor = Color.Blue;
+            }
+            else if (media_tvoc >= 0.088 && media_tvoc <= 0.261)
+            {
+                this.dataGridView1.Rows.Add("TVOC (PPM)", max_tvoc, min_tvoc, Math.Round(media_tvoc, 3), "MODERADO");
+                this.dataGridView1.Rows[3].Cells[4].Style.BackColor = Color.Green;
+            }
+            else if (media_tvoc >= 0.262 && media_tvoc <= 0.43)
+            {
+                this.dataGridView1.Rows.Add("TVOC (PPM)", max_tvoc, min_tvoc, Math.Round(media_tvoc, 3), "POUCO SAUDÁVEL");
+                this.dataGridView1.Rows[3].Cells[4].Style.BackColor = Color.Yellow;
+            }
+            else if (media_tvoc > 0.43)
+            {
+                this.dataGridView1.Rows.Add("TVOC (PPM)", max_tvoc, min_tvoc, Math.Round(media_tvoc, 3), "PERIGOSO");
+                this.dataGridView1.Rows[3].Cells[4].Style.BackColor = Color.Red;
+            }
+
+            /** PM10 Classificação AQI  **/
+            if (media_pm10 >= 0.0 & media_pm10 <= 20.9)
+            {
+                this.dataGridView1.Rows.Add("PM10 (ug/m³)", max_pm10, min_pm10, media_pm10.ToString("F"), "BOM");
+                this.dataGridView1.Rows[4].Cells[4].Style.BackColor = Color.Blue;
+            }
+            else if (media_pm10 >= 21.0 && media_pm10 <= 150.9)
+            {
+                this.dataGridView1.Rows.Add("PM10 (ug/m³)", max_pm10, min_pm10, media_pm10.ToString("F"), "MODERADO");
+                this.dataGridView1.Rows[4].Cells[4].Style.BackColor = Color.Green;
+            }
+            else if (media_pm10 >= 151.0 && media_pm10 <= 180.9)
+            {
+                this.dataGridView1.Rows.Add("PM10 (ug/m³)", max_pm10, min_pm10, media_pm10.ToString("F"), "POUCO SAUDÁVEL");
+                this.dataGridView1.Rows[4].Cells[4].Style.BackColor = Color.Yellow;
+            }
+            else if (media_pm10 > 180.9)
+            {
+                this.dataGridView1.Rows.Add("PM10 (ug/m³)", max_pm10, min_pm10, media_pm10.ToString("F"), "PERIGOSO");
+                this.dataGridView1.Rows[4].Cells[4].Style.BackColor = Color.Red;
+            }
+
+            /** PM2.5 Classificação AQI  **/
+            if (media_pm25 >= 0.0 & media_pm25 <= 10.1)
+            {
+                this.dataGridView1.Rows.Add("PM2.5 (ug/m³)", max_pm25, min_pm25, media_pm25.ToString("F"), "BOM");
+                this.dataGridView1.Rows[5].Cells[4].Style.BackColor = Color.Blue;
+            }
+            else if (media_pm25 >= 10.2 && media_pm25 <= 40.1)
+            {
+                this.dataGridView1.Rows.Add("PM2.5 (ug/m³)", max_pm25, min_pm25, media_pm25.ToString("F"), "MODERADO");
+                this.dataGridView1.Rows[5].Cells[4].Style.BackColor = Color.Green;
+            }
+            else if (media_pm25 >= 40.2 && media_pm25 <= 70.1)
+            {
+                this.dataGridView1.Rows.Add("PM2.5 (ug/m³)", max_pm25, min_pm25, media_pm25.ToString("F"), "POUCO SAUDÁVEL");
+                this.dataGridView1.Rows[5].Cells[4].Style.BackColor = Color.Yellow;
+            }
+            else if (media_pm25 > 70.1)
+            {
+                this.dataGridView1.Rows.Add("PM2.5 (ug/m³)", max_pm25, min_pm25, media_pm25.ToString("F"), "PERIGOSO");
+                this.dataGridView1.Rows[5].Cells[4].Style.BackColor = Color.Red;
+            }
+
+            this.dataGridView1.ClearSelection();
+
         }
 
         private string getEpochTime(string s)
