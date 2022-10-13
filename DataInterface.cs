@@ -19,9 +19,10 @@ namespace Dashboard_Monitor
         {
             try
             {
-                var web3 = new Web3("https://rinkeby.infura.io/v3/ea9cd517fe4c4782a5f7ee526a578ec5");
-                //var contractAddress = "0x495498a9F628Ce581AedA1B5bb6e598090717Df7";
-                var contractAddress = "0x8398bd7656e8e3ca4Ca8F35445530292368fc1c9";
+                //var web3 = new Web3("https://rinkeby.infura.io/v3/ea9cd517fe4c4782a5f7ee526a578ec5");
+                var web3 = new Web3("https://goerli.infura.io/v3/a9990f8e3c9346bf9bfea9becf0ab989");
+                //var contractAddress = "0x8398bd7656e8e3ca4Ca8F35445530292368fc1c9";
+                var contractAddress = "0xd2b6b56558cfd776b8671580fa298e93b00eca9e";
                 var contractHandler = web3.Eth.GetContractHandler(contractAddress);
 
                 /** Function: getMeasure**/
